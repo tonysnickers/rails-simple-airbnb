@@ -1,0 +1,28 @@
+<div class="text-center justify-content-center align-items-center">
+  <h1>All our flats</h1>
+
+  <p class=" align-items-end"><%= link_to "add new flat", new_flat_path %></p>
+
+
+
+
+  <div class="row w-400 m-auto">
+    <% @flats.each do |flat| %>
+      <div class="col-sm-4 my-3">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title"><%= flat.name %></h2>
+            <h4 class="card-text"><%= flat.address %></h4>
+            <p class="card-text"><%= flat.description %></p>
+            <div class="infos">
+              <i class="fa-solid fa-user-group mx-2"> <%= flat.number_of_guests %></i>
+              <i class="fa-solid fa-euro-sign"> <%= flat.price_per_night %></i>
+            </div>
+            <%= link_to "more info", flat_path(flat) %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<h1>Your Flat</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Description</th>
+      <th scope="col">price_per_night</th>
+      <th scope="col">number_of_guests</th>
+      <th>edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= @flat.name %></th>
+      <td><%= @flat.address %></td>
+      <td><%= @flat.description %></td>
+      <td><%= @flat.price_per_night %></td>
+      <td><%= @flat.number_of_guests %></td>
+      <td><%= link_to "edit", edit_flat_path(@flat) %></td>
+    </tr>
+  </tbody>
+
+</table>
+  <%= link_to "back to list", flats_path %>
