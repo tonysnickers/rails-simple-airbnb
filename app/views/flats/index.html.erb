@@ -11,6 +11,7 @@
       <div class="col-sm-4 my-3">
         <div class="card">
           <div class="card-body">
+            <img src="<%#= cl_image_tag flat.photo.key, height: 300, width: 400, crop: :fill %>" alt="">
             <h2 class="card-title"><%= flat.name %></h2>
             <h4 class="card-text"><%= flat.address %></h4>
             <p class="card-text"><%= flat.description %></p>
@@ -23,6 +24,12 @@
         </div>
       </div>
       <% end %>
+  </div>
+
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
 </div>

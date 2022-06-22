@@ -2,6 +2,15 @@ class FlatsController < ApplicationController
 
   def index
     @flats = Flat.all
+
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window: render_to_string(partial: 'info_window', locals: { flat: flat }),
+        image_url: helpers.asset_url("logo.png")
+      }
+    end
   end
 
   def show
@@ -36,6 +45,6 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests)
+    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests, :picture_url)
   end
 end
